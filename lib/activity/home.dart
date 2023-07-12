@@ -124,6 +124,26 @@ class _homeState extends State<home> {
                       ),
                       Expanded(
                         child: TextField(
+                          textInputAction: TextInputAction.search,
+                          onSubmitted: (value) {
+                            if ((searchController.text).replaceAll(" ", "") ==
+                                "") {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Blank Search"),
+                                ),
+                              );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => loading(
+                                    location: searchController.text,
+                                  ),
+                                ),
+                              );
+                            }
+                          },
                           controller: searchController,
                           decoration: InputDecoration(
                             border: InputBorder.none,

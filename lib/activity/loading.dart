@@ -54,42 +54,45 @@ class _loadingState extends State<loading> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.blue.shade800,
-                Colors.blue.shade200,
+        child: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.sizeOf(context).height,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.blue.shade800,
+                  Colors.blue.shade200,
+                ],
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Lottie.asset(
+                  'images/logo.json',
+                  height: 200,
+                  width: 150,
+                ),
+                const Text(
+                  "Mausam App",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const SpinKitWanderingCubes(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  size: 60,
+                ),
               ],
             ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Lottie.asset(
-                'images/logo.json',
-                height: 200,
-                width: 150,
-              ),
-              const Text(
-                "Mausam App",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SpinKitWanderingCubes(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                size: 60,
-              ),
-            ],
           ),
         ),
       ),
